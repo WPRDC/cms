@@ -1,10 +1,22 @@
 # WPRDC Strapi CMS configuration
 
-This repo contains our CMS configuration a
+This repo contains our [Strapi](https://strapi.io/) Content Management System (CMS) configuration.
+
+## Website
+The WPRDC main website is the primary consumer of this CMS.  
+
+The code for the site can be found here: https://github.com/WPRDC/wprdc-apps/tree/main/apps/website
+
+Types and API functions are also in the same monorepo as the website.
+
+[API Code](https://github.com/WPRDC/wprdc-apps/blob/main/packages/api/src/domains/cms.ts)  
+[TypeScript Types](https://github.com/WPRDC/wprdc-apps/tree/main/packages/types/src/cms)
+
+
 
 ## Strapi Documentation
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html) (CLI) which lets you scaffold and manage your project in seconds.
+Strapi comes with a full-featured [Command Line Interface](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html) (CLI) which lets you scaffold and manage your project in seconds.
 
 ### `develop`
 
