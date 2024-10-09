@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_elements_links",
+  "info": {
+    "displayName": "link",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": false
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "newTab": {
+      "type": "boolean",
+      "default": false,
+      "required": false
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "repo",
+        "documentation",
+        "dataset",
+        "team-member"
+      ]
+    }
+  }
+}
