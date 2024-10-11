@@ -877,6 +877,8 @@ export interface ApiWeeknoteWeeknote extends Struct.CollectionTypeSchema {
         }
       >;
     author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
+    week: Schema.Attribute.Date & Schema.Attribute.Required;
+    title: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

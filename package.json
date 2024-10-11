@@ -12,8 +12,8 @@
   },
   "dependencies": {
     "@ckeditor/strapi-plugin-ckeditor": "^1.0.2",
-    "@strapi/strapi": "5.0.3",
-    "better-sqlite3": "8.7.0",
+    "@strapi/strapi": "^5.0.5",
+    "better-sqlite3": "11.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2",
