@@ -861,7 +861,7 @@ export interface ApiWeeknoteWeeknote extends Struct.CollectionTypeSchema {
   info: {
     singularName: 'weeknote';
     pluralName: 'weeknotes';
-    displayName: 'Weeknote';
+    displayName: 'Dispatch';
     description: '';
   };
   options: {

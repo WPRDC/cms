@@ -131,9 +131,16 @@ export interface HomePageSearchSection extends Struct.ComponentSchema {
   };
   attributes: {
     title: Schema.Attribute.String;
-    description: Schema.Attribute.Text;
     belowSearchText: Schema.Attribute.String;
     buttons: Schema.Attribute.Component<'elements.button', true>;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'light';
+        }
+      >;
   };
 }
 
