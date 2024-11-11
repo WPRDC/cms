@@ -1,5 +1,53 @@
 import type { Struct, Schema } from '@strapi/strapi';
 
+export interface NavbarSubMenuItem extends Struct.ComponentSchema {
+  collectionName: 'components_navbar_sub_menu_items';
+  info: {
+    displayName: 'subMenuItem';
+    description: '';
+  };
+  attributes: {
+    link: Schema.Attribute.Component<'elements.link', false>;
+    deatailLine: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'standard';
+        }
+      >;
+    icon: Schema.Attribute.Media<'images'>;
+    subItems: Schema.Attribute.Component<'elements.link', true>;
+  };
+}
+
+export interface NavbarNavbarLogo extends Struct.ComponentSchema {
+  collectionName: 'components_navbar_navbar_logos';
+  info: {
+    displayName: 'navbarLogo';
+  };
+  attributes: {
+    lightImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    darkImage: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    homeURL: Schema.Attribute.String;
+    altText: Schema.Attribute.String;
+  };
+}
+
+export interface NavbarNavLink extends Struct.ComponentSchema {
+  collectionName: 'components_navbar_nav_links';
+  info: {
+    displayName: 'navLink';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    url: Schema.Attribute.String;
+  };
+}
+
 export interface SharedSeo extends Struct.ComponentSchema {
   collectionName: 'components_shared_seos';
   info: {
@@ -61,54 +109,6 @@ export interface SharedMetaSocial extends Struct.ComponentSchema {
         maxLength: 65;
       }>;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
-  };
-}
-
-export interface NavbarSubMenuItem extends Struct.ComponentSchema {
-  collectionName: 'components_navbar_sub_menu_items';
-  info: {
-    displayName: 'subMenuItem';
-    description: '';
-  };
-  attributes: {
-    link: Schema.Attribute.Component<'elements.link', false>;
-    deatailLine: Schema.Attribute.String;
-    description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          output: 'HTML';
-          preset: 'standard';
-        }
-      >;
-    icon: Schema.Attribute.Media<'images'>;
-    subItems: Schema.Attribute.Component<'elements.link', true>;
-  };
-}
-
-export interface NavbarNavbarLogo extends Struct.ComponentSchema {
-  collectionName: 'components_navbar_navbar_logos';
-  info: {
-    displayName: 'navbarLogo';
-  };
-  attributes: {
-    lightImage: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    darkImage: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    homeURL: Schema.Attribute.String;
-    altText: Schema.Attribute.String;
-  };
-}
-
-export interface NavbarNavLink extends Struct.ComponentSchema {
-  collectionName: 'components_navbar_nav_links';
-  info: {
-    displayName: 'navLink';
-  };
-  attributes: {
-    label: Schema.Attribute.String;
-    url: Schema.Attribute.String;
   };
 }
 
@@ -288,12 +288,12 @@ export interface ContentBodyText extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'shared.seo': SharedSeo;
-      'shared.metadata': SharedMetadata;
-      'shared.meta-social': SharedMetaSocial;
       'navbar.sub-menu-item': NavbarSubMenuItem;
       'navbar.navbar-logo': NavbarNavbarLogo;
       'navbar.nav-link': NavbarNavLink;
+      'shared.seo': SharedSeo;
+      'shared.metadata': SharedMetadata;
+      'shared.meta-social': SharedMetaSocial;
       'home-page.tiles': HomePageTiles;
       'home-page.search-section': HomePageSearchSection;
       'home-page.lower-section': HomePageLowerSection;
